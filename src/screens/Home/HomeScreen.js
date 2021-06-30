@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // Components.
 import LoadingIndicator from '../../components/common/LoadingIndicator';
 import ScreenWithTitle from '../../components/common/ScreenWithTitle';
+import CharacterPreviewTile from '../../components/homeScreen/CharacterPreviewTile';
 // Store.
 import { RnM_DATA_SAGA } from '../../store/sagas/dataTransferSaga';
 // Styles.
@@ -13,6 +14,7 @@ const HomeScreen = ({ navigation }) => {
     const dispatch = useDispatch();
     const loading = useSelector((state) => state.loaderReducer.home);
     const characters = useSelector((state) => state.charactersReducer.characters);
+    const activeCharacter = useSelector((state) => state.charactersReducer.activeCharacter);
 
     useEffect(() => {
         dispatch({ type: RnM_DATA_SAGA });
@@ -28,11 +30,11 @@ const HomeScreen = ({ navigation }) => {
             title={"The Rick and Morty Api"}
             subtitle={"Home Screen"}
             screenContent={
-                <View style={{ paddingTop: 16 }}>
+                <View style={{ paddingTop: 16, flex: 1 }}>
                     {loading && (<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                         <LoadingIndicator />
                     </View>)}
-                    <Text style={{ color: colors.white }}>Hellou!</Text>
+                    <CharacterPreviewTile character={activeCharacter} />
                 </View>
 
             }
