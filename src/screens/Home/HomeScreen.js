@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import LoadingIndicator from '../../components/common/LoadingIndicator';
 import ScreenWithTitle from '../../components/common/ScreenWithTitle';
 import CharacterPreviewTile from '../../components/homeScreen/CharacterPreviewTile';
+import LocationPreviewTile from '../../components/homeScreen/LocationPreviewTile';
 // Store.
 import { RnM_DATA_SAGA } from '../../store/sagas/dataTransferSaga';
 // Styles.
@@ -15,6 +16,7 @@ const HomeScreen = ({ navigation }) => {
     const loading = useSelector((state) => state.loaderReducer.home);
     const characters = useSelector((state) => state.charactersReducer.characters);
     const activeCharacter = useSelector((state) => state.charactersReducer.activeCharacter);
+    const activeLocation = useSelector((state) => state.locationsReducer.activeLocation);
 
     useEffect(() => {
         dispatch({ type: RnM_DATA_SAGA });
@@ -34,7 +36,8 @@ const HomeScreen = ({ navigation }) => {
                     {loading && (<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                         <LoadingIndicator />
                     </View>)}
-                    <CharacterPreviewTile character={activeCharacter} />
+                    {/* <CharacterPreviewTile character={activeCharacter} /> */}
+                    <LocationPreviewTile location={activeLocation} />
                 </View>
 
             }
