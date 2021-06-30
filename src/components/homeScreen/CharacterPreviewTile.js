@@ -19,10 +19,7 @@ const CharacterPreviewTile = ({ character }) => {
                     <Text>{character.location}</Text>
                     <Text>{character.location}</Text>
                 </View>
-
             </View>
-
-
         </View>
     )
 }
@@ -31,7 +28,7 @@ export default CharacterPreviewTile;
 
 const styles = StyleSheet.create({
     container: {
-        height: 160,
+        //height: 160,
         backgroundColor: colors.previewTileBackground,
         borderRadius: 10,
         overflow: 'hidden'
