@@ -37,9 +37,8 @@ const HomeScreen = ({ navigation }) => {
                     {!loading && <FlatList
                         showsHorizontalScrollIndicator={false}
                         data={locations}
-                        renderItem={({ item, index }) => <LocationPreviewTile location={item} />}
+                        renderItem={({ item, index }) => <LocationPreviewTile location={item} navigation={navigation} />}
                         keyExtractor={(item) => item.id}
-
                     />}
                 </View>
 

@@ -9,7 +9,7 @@ import { colors } from '../../styles/colors';
 import CharacterInfoImage from './CharacterInfoImage';
 // Utils.
 
-const LocationPreviewTile = ({ location }) => {
+const LocationPreviewTile = ({ location, navigation }) => {
     return (
         <View style={styles.container}>
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -21,7 +21,7 @@ const LocationPreviewTile = ({ location }) => {
                 style={{ flexGrow: 1 }}
                 horizontal={true}
                 data={location.residents}
-                renderItem={({ item, index }) => <CharacterInfoImage characterDataUrl={item} />}
+                renderItem={({ item, index }) => <CharacterInfoImage characterDataUrl={item} navigation={navigation} />}
                 keyExtractor={(item) => item.id}
             />
         </View>

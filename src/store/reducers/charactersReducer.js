@@ -1,7 +1,7 @@
 export const BASE = 'ricknmorty/reducer/characters';
 
 export const SET_CHARACTERS_ARRAY = BASE + '/all';
-
+export const SET_ACTIVE_CHARACTER = BASE + '/active';
 
 
 const initialState = {
@@ -38,6 +38,12 @@ export default charactersReducer = (state = initialState, action) => {
                 ...state,
                 characters: action.payload,
             }
+        case SET_ACTIVE_CHARACTER:
+            console.log(`loaderReducer.js: action: ${SET_ACTIVE_CHARACTER}`);
+            return {
+                ...state,
+                activeCharacter: action.payload,
+            }
         default:
             return state;
     }
@@ -46,6 +52,13 @@ export default charactersReducer = (state = initialState, action) => {
 export const setCharactersArray = (payload) => {
     return {
         type: SET_CHARACTERS_ARRAY,
+        payload
+    }
+}
+
+export const setActiveCharacterArray = (payload) => {
+    return {
+        type: SET_ACTIVE_CHARACTER,
         payload
     }
 }

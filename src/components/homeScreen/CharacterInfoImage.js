@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { RESIDENT_SCREEN } from '../../navigation/screenNames';
 // Components.
 // Store.
 import { GET_CharacterData } from '../../services/rickNmortyService';
@@ -8,7 +9,7 @@ import { GET_CharacterData } from '../../services/rickNmortyService';
 import { colors } from '../../styles/colors';
 // Utils.
 
-const CharacterInfoImage = ({ characterDataUrl }) => {
+const CharacterInfoImage = ({ characterDataUrl, navigation }) => {
     const [loading, setLoading] = useState(true);
     const [character, setCharacter] = useState(null);
 
@@ -33,9 +34,12 @@ const CharacterInfoImage = ({ characterDataUrl }) => {
     }
 
     return (
-        <View>
+        <TouchableOpacity onPress={() => {
+            navigation.navigate(RESIDENT_SCREEN);
+        }}>
             <View style={styles.container}>
                 {!loading && character != null &&
+
                     <ImageBackground source={{ uri: character.image }} style={{ height: '100%', width: 100 }}>
                         <View style={{ flexGrow: 1, justifyContent: 'flex-end' }}>
                             <View style={{ backgroundColor: colors.dataInfoTextGray, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 4 }}>
@@ -45,7 +49,7 @@ const CharacterInfoImage = ({ characterDataUrl }) => {
                         </View>
                     </ImageBackground>}
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
