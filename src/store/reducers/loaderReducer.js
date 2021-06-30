@@ -1,6 +1,6 @@
 export const BASE = 'ricknmorty/reducer/loader';
 
-export const SET_HOME_LOADING = BASE + '/splash';
+export const SET_HOME_LOADING = BASE + '/home';
 
 
 

@@ -1,5 +1,6 @@
 import { call, put, takeEvery } from "@redux-saga/core/effects";
 import { GET_Characters } from "../../services/rickNmortyService";
+import { setCharactersArray } from "../reducers/charactersReducer";
 import { setHomeLoader } from "../reducers/loaderReducer";
 
 const BASE = 'ricknmorty/saga/dataTransferSaga'
@@ -11,6 +12,7 @@ export function* rnmData() {
         console.log(`dataTransferSaga.js : SAGA -> ${RnM_DATA_SAGA}`);
         yield put(setHomeLoader(true));
         const data = yield call(GET_Characters);
+        yield put(setCharactersArray(data));
     } catch (err) {
         console.log(`Error @ dataTransferSaga.js : SAGA -> ${RnM_DATA_SAGA}, err: `, err);
     } finally {
