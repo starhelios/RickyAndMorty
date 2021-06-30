@@ -14,10 +14,7 @@ import { colors } from '../../styles/colors';
 const HomeScreen = ({ navigation }) => {
     const dispatch = useDispatch();
     const loading = useSelector((state) => state.loaderReducer.home);
-    const characters = useSelector((state) => state.charactersReducer.characters);
     const locations = useSelector((state) => state.locationsReducer.locations);
-    const activeCharacter = useSelector((state) => state.charactersReducer.activeCharacter);
-    const activeLocation = useSelector((state) => state.locationsReducer.activeLocation);
 
     useEffect(() => {
         dispatch({ type: LOCATIONS_DATA_SAGA });
@@ -37,7 +34,6 @@ const HomeScreen = ({ navigation }) => {
                     {loading && (<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', marginTop: 50 }}>
                         <LoadingIndicator />
                     </View>)}
-                    {/* <CharacterPreviewTile character={activeCharacter} /> */}
                     {!loading && <FlatList
                         showsHorizontalScrollIndicator={false}
                         data={locations}

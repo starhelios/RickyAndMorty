@@ -21,7 +21,7 @@ const LocationPreviewTile = ({ location }) => {
                 style={{ flexGrow: 1 }}
                 horizontal={true}
                 data={location.residents}
-                renderItem={({ item, index }) => <CharacterInfoImage />}
+                renderItem={({ item, index }) => <CharacterInfoImage characterDataUrl={item} />}
                 keyExtractor={(item) => item.id}
             />
         </View>
