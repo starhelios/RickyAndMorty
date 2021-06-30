@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, SafeAreaView } from 'react-native';
+import ScreenWithTitle from '../../components/common/ScreenWithTitle';
+import { colors } from '../../styles/colors';
 
 // Components.
 // Store.
@@ -8,11 +10,16 @@ import { View, Text, SafeAreaView } from 'react-native';
 
 const HomeScreen = ({ navigation }) => {
     return (
-        <SafeAreaView>
-            <View>
-                <Text>HomeScreen</Text>
-            </View>
-        </SafeAreaView>
+        <ScreenWithTitle
+            title={"The Rick and Morty Api"}
+            subtitle={"Home Screen"}
+            screenContent={
+                <View style={{ paddingTop: 16 }}>
+                    <Text style={{ color: colors.white }}>Hellou!</Text>
+                </View>
+
+            }
+        />
 
     )
 }

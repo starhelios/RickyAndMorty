@@ -1,6 +1,6 @@
 export const BASE = 'ricknmorty/reducer/loader';
 
-export const SET_SPLASH_LOADING = BASE + '/splash';
+export const SET_HOME_LOADING = BASE + '/splash';
 
 
 
@@ -10,7 +10,7 @@ const initialState = {
 
 export default loaderReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_SPLASH_LOADING:
+        case SET_HOME_LOADING:
             console.log(`loaderReducer.js: action: ${SET_SPLASH_LOADING}`);
             return {
                 ...state,
@@ -21,9 +21,9 @@ export default loaderReducer = (state = initialState, action) => {
     }
 }
 
-export const setSplashLoader = (payload) => {
+export const setHomeLoader = (payload) => {
     return {
-        type: SET_SPLASH_LOADING,
+        type: SET_HOME_LOADING,
         payload
     }
 }
