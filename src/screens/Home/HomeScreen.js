@@ -1,19 +1,18 @@
 import React, { useEffect } from 'react';
 import { View, Text, SafeAreaView } from 'react-native';
-import ScreenWithTitle from '../../components/common/ScreenWithTitle';
-import { colors } from '../../styles/colors';
 import { useDispatch, useSelector } from 'react-redux';
-import { RnM_DATA_SAGA } from '../../store/sagas/dataTransferSaga';
-import LoadingIndicator from '../../components/common/LoadingIndicator';
-
 // Components.
+import LoadingIndicator from '../../components/common/LoadingIndicator';
+import ScreenWithTitle from '../../components/common/ScreenWithTitle';
 // Store.
+import { RnM_DATA_SAGA } from '../../store/sagas/dataTransferSaga';
 // Styles.
-// Utils.
+import { colors } from '../../styles/colors';
 
 const HomeScreen = ({ navigation }) => {
     const dispatch = useDispatch();
     const loading = useSelector((state) => state.loaderReducer.home);
+    const characters = useSelector((state) => state.charactersReducer.characters);
 
     useEffect(() => {
         dispatch({ type: RnM_DATA_SAGA });
