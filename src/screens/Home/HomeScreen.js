@@ -7,7 +7,7 @@ import ScreenWithTitle from '../../components/common/ScreenWithTitle';
 import CharacterPreviewTile from '../../components/homeScreen/CharacterPreviewTile';
 import LocationPreviewTile from '../../components/homeScreen/LocationPreviewTile';
 // Store.
-import { RnM_DATA_SAGA } from '../../store/sagas/dataTransferSaga';
+import { LOCATIONS_DATA_SAGA } from '../../store/sagas/dataTransferSaga';
 // Styles.
 import { colors } from '../../styles/colors';
 
@@ -19,7 +19,7 @@ const HomeScreen = ({ navigation }) => {
     const activeLocation = useSelector((state) => state.locationsReducer.activeLocation);
 
     useEffect(() => {
-        dispatch({ type: RnM_DATA_SAGA });
+        dispatch({ type: LOCATIONS_DATA_SAGA });
     }, [])
 
     useEffect(() => {
