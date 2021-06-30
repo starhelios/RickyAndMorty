@@ -5,7 +5,7 @@ export const SET_HOME_LOADING = BASE + '/splash';
 
 
 const initialState = {
-    splash: false
+    home: false
 }
 
 export default loaderReducer = (state = initialState, action) => {
@@ -14,7 +14,7 @@ export default loaderReducer = (state = initialState, action) => {
             console.log(`loaderReducer.js: action: ${SET_HOME_LOADING}`);
             return {
                 ...state,
-                splash: action.payload,
+                home: action.payload,
             }
         default:
             return state;

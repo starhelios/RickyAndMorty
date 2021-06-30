@@ -8,9 +8,9 @@ export const RnM_DATA_SAGA = BASE + '/data';
 
 export function* rnmData() {
     try {
-        yield put(setHomeLoader(true));
-        const data = yield call(GET_Characters, {});
         console.log(`dataTransferSaga.js : SAGA -> ${RnM_DATA_SAGA}`);
+        yield put(setHomeLoader(true));
+        const data = yield call(GET_Characters);
     } catch (err) {
         console.log(`Error @ dataTransferSaga.js : SAGA -> ${RnM_DATA_SAGA}, err: `, err);
     } finally {
