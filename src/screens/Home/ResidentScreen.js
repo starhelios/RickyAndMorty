@@ -1,16 +1,18 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import ScreenWithTitle from '../../components/common/ScreenWithTitle';
-
+import { useDispatch, useSelector } from 'react-redux';
 // Components.
+import ScreenWithTitle from '../../components/common/ScreenWithTitle';
 // Store.
 // Styles.
 // Utils.
 
 const ResidentScreen = ({ navigation }) => {
+    const resident = useSelector((state) => state.charactersReducer.activeResident);
+
     return (
         <ScreenWithTitle
-            title={"Resident Screen title"}
+            title={resident.name}
             subtitle={"Resident screen"}
             screenContent={
                 <>

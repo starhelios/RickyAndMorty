@@ -6,7 +6,7 @@ export const SET_ACTIVE_CHARACTER = BASE + '/active';
 
 const initialState = {
     characters: [],
-    activeCharacter: {
+    activeResident: {
         "created": "2017-11-04T18:50:21.651Z",
         "episode": [
             "Array"
@@ -27,9 +27,6 @@ const initialState = {
         "url": "https://rickandmortyapi.com/api/character/2"
     },
 }
-
-// ONE CHARACTER MODEL
-
 export default charactersReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_CHARACTERS_ARRAY:
@@ -42,7 +39,7 @@ export default charactersReducer = (state = initialState, action) => {
             console.log(`loaderReducer.js: action: ${SET_ACTIVE_CHARACTER}`);
             return {
                 ...state,
-                activeCharacter: action.payload,
+                activeResident: action.payload,
             }
         default:
             return state;

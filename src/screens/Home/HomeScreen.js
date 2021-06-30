@@ -20,11 +20,6 @@ const HomeScreen = ({ navigation }) => {
         dispatch({ type: LOCATIONS_DATA_SAGA });
     }, [])
 
-    useEffect(() => {
-        console.log('Loading: ', loading);
-    }, [loading])
-
-
     return (
         <ScreenWithTitle
             title={"The Rick and Morty Api"}
@@ -38,7 +33,9 @@ const HomeScreen = ({ navigation }) => {
                         showsHorizontalScrollIndicator={false}
                         data={locations}
                         renderItem={({ item, index }) => <LocationPreviewTile location={item} navigation={navigation} />}
-                        keyExtractor={(item) => item.id}
+                        keyExtractor={(item, index) => {
+                            return 'HL' + index
+                        }}
                     />}
                 </View>
 

@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { View, Text, StyleSheet, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { RESIDENT_SCREEN } from '../../navigation/screenNames';
 // Components.
 // Store.
 import { GET_CharacterData } from '../../services/rickNmortyService';
+import { SET_ACTIVE_CHARACTER } from '../../store/reducers/charactersReducer';
 // Styles.
 import { colors } from '../../styles/colors';
 // Utils.
 
 const CharacterInfoImage = ({ characterDataUrl, navigation }) => {
+    const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
     const [character, setCharacter] = useState(null);
 
@@ -28,18 +30,30 @@ const CharacterInfoImage = ({ characterDataUrl, navigation }) => {
         try {
             let charData = await GET_CharacterData(characterDataUrl);
             setCharacter(charData);
+            return;
         } catch (err) {
             console.log('Error @ CharacterInfoImage.js: fetchCharacterDataFromApi -> ', err);
         }
     }
 
+    const onPress = useMemo(() => {
+        if (character) {
+            return () => {
+                dispatch({
+                    type: SET_ACTIVE_CHARACTER,
+                    payload: character
+                })
+                navigation.navigate(RESIDENT_SCREEN);
+            }
+        }
+
+        return () => { };
+    }, [character])
+
     return (
-        <TouchableOpacity onPress={() => {
-            navigation.navigate(RESIDENT_SCREEN);
-        }}>
+        <TouchableOpacity onPress={onPress}>
             <View style={styles.container}>
                 {!loading && character != null &&
-
                     <ImageBackground source={{ uri: character.image }} style={{ height: '100%', width: 100 }}>
                         <View style={{ flexGrow: 1, justifyContent: 'flex-end' }}>
                             <View style={{ backgroundColor: colors.dataInfoTextGray, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 4 }}>

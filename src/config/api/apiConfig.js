@@ -12,7 +12,7 @@ const responseInterceptorID = API.interceptors.response.use(
 );
 
 const handleSuccessResponse = response => {
-    console.log('apiConfig.js - Response succeded!\n');
+    //console.log('apiConfig.js - Response succeded!\n');
     return response;
 };
 
