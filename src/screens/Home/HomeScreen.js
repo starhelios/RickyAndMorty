@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // Components.
 import LoadingIndicator from '../../components/common/LoadingIndicator';
 import ScreenWithTitle from '../../components/common/ScreenWithTitle';
-import CharacterPreviewTile from '../../components/homeScreen/CharacterPreviewTile';
-import LocationPreviewTile from '../../components/homeScreen/LocationPreviewTile';
+import LocationPreviewTile from '../../components/home/LocationPreviewTile';
 // Store.
 import { LOCATIONS_DATA_SAGA } from '../../store/sagas/dataTransferSaga';
 // Styles.

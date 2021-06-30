@@ -8,6 +8,7 @@ import { GET_CharacterData } from '../../services/rickNmortyService';
 import { SET_ACTIVE_CHARACTER } from '../../store/reducers/charactersReducer';
 // Styles.
 import { colors } from '../../styles/colors';
+import StatusDot from './StatusDot';
 // Utils.
 
 const CharacterInfoImage = ({ characterDataUrl, navigation }) => {
@@ -56,9 +57,9 @@ const CharacterInfoImage = ({ characterDataUrl, navigation }) => {
                 {!loading && character != null &&
                     <ImageBackground source={{ uri: character.image }} style={{ height: '100%', width: 100 }}>
                         <View style={{ flexGrow: 1, justifyContent: 'flex-end' }}>
-                            <View style={{ backgroundColor: colors.dataInfoTextGray, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 4 }}>
+                            <View style={{ backgroundColor: colors.dataInfoTextGray, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 4, alignItems: 'center' }}>
                                 <Text style={styles.textStyle}>{character.name}</Text>
-                                <Text style={styles.textStyle}>{character.status}</Text>
+                                <StatusDot status={character.status} />
                             </View>
                         </View>
                     </ImageBackground>}

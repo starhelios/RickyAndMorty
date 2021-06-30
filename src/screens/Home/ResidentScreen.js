@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 // Components.
 import ScreenWithTitle from '../../components/common/ScreenWithTitle';
+import ResidentOverview from '../../components/home/ResidentOverview';
 // Store.
 // Styles.
 // Utils.
@@ -15,9 +16,9 @@ const ResidentScreen = ({ navigation }) => {
             title={resident.name}
             subtitle={"Resident screen"}
             screenContent={
-                <>
-                    <Text>No content</Text>
-                </>
+                <View style={{ paddingTop: 16 }}>
+                    <ResidentOverview resident={resident} />
+                </View>
             }
         />
     )
