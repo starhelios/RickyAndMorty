@@ -11,7 +11,7 @@ const initialState = {
 export default loaderReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_HOME_LOADING:
-            console.log(`loaderReducer.js: action: ${SET_SPLASH_LOADING}`);
+            console.log(`loaderReducer.js: action: ${SET_HOME_LOADING}`);
             return {
                 ...state,
                 splash: action.payload,
