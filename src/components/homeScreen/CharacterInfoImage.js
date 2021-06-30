@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GET_CharacterData } from '../../services/rickNmortyService';
 // Styles.
 import { colors } from '../../styles/colors';
-import { images } from '../../styles/images';
 // Utils.
 
 const CharacterInfoImage = ({ characterDataUrl }) => {
