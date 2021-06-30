@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { GET_CharacterData } from '../../services/rickNmortyService';
-
-
 // Components.
 // Store.
+import { GET_CharacterData } from '../../services/rickNmortyService';
 // Styles.
 import { colors } from '../../styles/colors';
+import { images } from '../../styles/images';
 // Utils.
 
 const CharacterInfoImage = ({ characterDataUrl }) => {
     const [loading, setLoading] = useState(true);
-    const [scharacter, setCharacter] = useState(null);
+    const [character, setCharacter] = useState(null);
 
     useEffect(() => {
         fetchCharacterDataFromApi();
@@ -22,9 +21,8 @@ const CharacterInfoImage = ({ characterDataUrl }) => {
         if (loading) {
             setLoading(!loading)
         }
-    }, [scharacter])
+    }, [character])
 
-    const character = useSelector((state) => state.charactersReducer.activeCharacter);
 
     const fetchCharacterDataFromApi = async () => {
         try {
@@ -35,12 +33,10 @@ const CharacterInfoImage = ({ characterDataUrl }) => {
         }
     }
 
-
-
     return (
         <View>
             <View style={styles.container}>
-                {!loading && scharacter != null &&
+                {!loading && character != null &&
                     <ImageBackground source={{ uri: character.image }} style={{ height: '100%', width: 100 }}>
                         <View style={{ flexGrow: 1, justifyContent: 'flex-end' }}>
                             <View style={{ backgroundColor: colors.dataInfoTextGray, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 4 }}>
