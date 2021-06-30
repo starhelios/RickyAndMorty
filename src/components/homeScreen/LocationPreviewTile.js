@@ -17,11 +17,12 @@ const LocationPreviewTile = ({ location }) => {
                 <Text style={styles.dataInfoTextStyle}>name: <Text style={styles.textStyle}>{location.name}</Text></Text>
             </View>
             <FlatList
+                showsHorizontalScrollIndicator={false}
                 style={{ flexGrow: 1 }}
                 horizontal={true}
-                ListHeaderComponent={
-                    <CharacterInfoImage />
-                }
+                data={location.residents}
+                renderItem={({ item, index }) => <CharacterInfoImage />}
+                keyExtractor={(item) => item.id}
             />
         </View>
     )
@@ -31,12 +32,12 @@ export default LocationPreviewTile;
 
 const styles = StyleSheet.create({
     container: {
-        //flexGrow: 1,
         height: 160,
         backgroundColor: colors.previewTileBackground,
         borderRadius: 10,
         overflow: 'hidden',
-        padding: 8
+        padding: 8,
+        marginTop: 10
     },
     textStyle: {
         color: colors.white,
