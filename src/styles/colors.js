@@ -5,6 +5,7 @@ export const colors = {
     dataInfoTextGray: '#a19f9a',
     deadColor: '#d63d2f',
     aliveColor: '#56cc44',
-    unknownColor: '#9f9e9e'
+    unknownColor: '#9f9e9e',
+    bottomStatusBackground: '#f5f5f5'
 
 }
