@@ -2,6 +2,7 @@ import API from "../config/api/rnmApiConfig";
 import API_PLACEHOLDER from "../config/api/placeholderApiConfig";
 
 
+
 const ENDPOINTS = {
     CHARACTER: '/character',
     LOCATIONS: '/location',

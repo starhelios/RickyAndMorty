@@ -3,6 +3,8 @@ import { GET_Characters, GET_Locations, POST_Form } from "../../services/rickNmo
 import { setCharactersArray } from "../reducers/charactersReducer";
 import { setHomeLoader, setSubmitLoader } from "../reducers/loaderReducer";
 import { setLocationsArray } from "../reducers/locationsReducer";
+import * as NavigationService from '../../config/navigation/navigationService';
+import { HOME_SCREEN } from "../../navigation/screenNames";
 
 const BASE = 'ricknmorty/saga/dataTransferSaga'
 
@@ -28,7 +30,7 @@ export function* postImpression(data) {
         console.log(`dataTransferSaga.js : SAGA -> ${SEND_IMPRESSION_SAGA}`, data);
         yield put(setSubmitLoader(true));
         let response = yield call(POST_Form, { data });
-
+        NavigationService.navigate(HOME_SCREEN);
     } catch (err) {
         console.log(`Error @ dataTransferSaga.js : SAGA -> ${SEND_IMPRESSION_SAGA}, err: `, err);
     } finally {
