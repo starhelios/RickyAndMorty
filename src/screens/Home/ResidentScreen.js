@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 // Components.
@@ -12,6 +12,7 @@ import BackButton from '../../components/common/BackButton';
 
 const ResidentScreen = ({ navigation }) => {
     const resident = useSelector((state) => state.charactersReducer.activeResident);
+    const [impressionInput, setImpressionInput] = useState("");
 
     return (
         <ScreenWithTitle
@@ -21,7 +22,10 @@ const ResidentScreen = ({ navigation }) => {
             screenContent={
                 <View style={{ paddingTop: 16 }}>
                     <ResidentOverview resident={resident} />
-                    <UserResidentImpression />
+                    <UserResidentImpression
+                        state={impressionInput}
+                        setState={setImpressionInput}
+                    />
                 </View>
             }
         />
