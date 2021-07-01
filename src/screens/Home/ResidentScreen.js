@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import BackButton from '../../components/common/BackButton';
 // Components.
 import ScreenWithTitle from '../../components/common/ScreenWithTitle';
 import ResidentOverview from '../../components/home/ResidentOverview';
@@ -13,6 +14,7 @@ const ResidentScreen = ({ navigation }) => {
 
     return (
         <ScreenWithTitle
+            backButton={<BackButton navigation={navigation} />}
             title={resident.name}
             subtitle={"Resident screen"}
             screenContent={

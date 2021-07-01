@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import { GET_Episode } from '../../services/rickNmortyService';
-
-
 // Components.
+import StatusDot from './StatusDot';
 // Store.
+import { GET_Episode } from '../../services/rickNmortyService';
 // Styles.
 import { colors } from '../../styles/colors';
-import StatusDot from './StatusDot';
 // Utils.
 
 const ResidentOverview = ({ resident }) => {
@@ -24,7 +22,7 @@ const ResidentOverview = ({ resident }) => {
             console.log('episode: ', epData.name)
             return;
         } catch (err) {
-            console.log('Error @ CharacterInfoImage.js: fetchCharacterDataFromApi -> ', err);
+            console.log('Error @ ResidentOverivew.js: fetchCharacterDataFromApi -> ', err);
         }
     }
     return (
