@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import BackButton from '../../components/common/BackButton';
 // Components.
 import ScreenWithTitle from '../../components/common/ScreenWithTitle';
 import ResidentOverview from '../../components/home/ResidentOverview';
+import UserResidentImpression from '../../components/home/UserResidentImpression';
+import BackButton from '../../components/common/BackButton';
 // Store.
 // Styles.
 // Utils.
@@ -20,6 +21,7 @@ const ResidentScreen = ({ navigation }) => {
             screenContent={
                 <View style={{ paddingTop: 16 }}>
                     <ResidentOverview resident={resident} />
+                    <UserResidentImpression />
                 </View>
             }
         />
