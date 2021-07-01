@@ -11,7 +11,7 @@ import { colors } from '../../styles/colors';
 import StatusDot from './StatusDot';
 // Utils.
 
-const CharacterInfoImage = ({ characterDataUrl, navigation }) => {
+const ResidentInfoImage = ({ characterDataUrl, navigation }) => {
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
     const [character, setCharacter] = useState(null);
@@ -33,7 +33,7 @@ const CharacterInfoImage = ({ characterDataUrl, navigation }) => {
             setCharacter(charData);
             return;
         } catch (err) {
-            console.log('Error @ CharacterInfoImage.js: fetchCharacterDataFromApi -> ', err);
+            console.log('Error @ ResidentInfoImage.js: fetchCharacterDataFromApi -> ', err);
         }
     }
 
@@ -68,7 +68,7 @@ const CharacterInfoImage = ({ characterDataUrl, navigation }) => {
     )
 }
 
-export default CharacterInfoImage;
+export default ResidentInfoImage;
 
 const styles = StyleSheet.create({
     container: {

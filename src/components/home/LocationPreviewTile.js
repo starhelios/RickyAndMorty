@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, FlatList } from 'react-native';
 
 
 // Components.
-import CharacterInfoImage from './CharacterInfoImage';
+import ResidentInfoImage from './ResidentInfoImage';
 // Store.
 // Styles.
 import { colors } from '../../styles/colors';
@@ -21,7 +21,7 @@ const LocationPreviewTile = ({ location, navigation }) => {
                 style={{ flexGrow: 1 }}
                 horizontal={true}
                 data={location.residents}
-                renderItem={({ item, index }) => <CharacterInfoImage characterDataUrl={item} navigation={navigation} />}
+                renderItem={({ item, index }) => <ResidentInfoImage characterDataUrl={item} navigation={navigation} />}
                 keyExtractor={(item, index) => { return 'LP' + index }}
             />
         </View>
