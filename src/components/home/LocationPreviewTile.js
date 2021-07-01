@@ -1,13 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, FlatList } from 'react-native';
-
-
 // Components.
 import ResidentInfoImage from './ResidentInfoImage';
-// Store.
 // Styles.
 import { colors } from '../../styles/colors';
-// Utils.
 
 const LocationPreviewTile = ({ location, navigation }) => {
     return (

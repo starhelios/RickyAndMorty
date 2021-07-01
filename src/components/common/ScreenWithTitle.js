@@ -1,12 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { colors } from '../../styles/colors';
-import BackButton from './BackButton';
-
 // Components.
-// Store.
+import BackButton from './BackButton';
 // Styles.
-// Utils.
+import { colors } from '../../styles/colors';
 
 const ScreenWithTitle = ({ title = "Screen title", subtitle = "Screen Subtitle", screenContent, backButton }) => {
     return (

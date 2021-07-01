@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { View, Text, StyleSheet, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { RESIDENT_SCREEN } from '../../navigation/screenNames';
 // Components.
+import StatusDot from './StatusDot';
 // Store.
 import { GET_CharacterData } from '../../services/rickNmortyService';
 import { SET_ACTIVE_CHARACTER } from '../../store/reducers/charactersReducer';
 // Styles.
 import { colors } from '../../styles/colors';
-import StatusDot from './StatusDot';
 // Utils.
+import { RESIDENT_SCREEN } from '../../navigation/screenNames';
+
 
 const ResidentInfoImage = ({ characterDataUrl, navigation }) => {
     const dispatch = useDispatch();

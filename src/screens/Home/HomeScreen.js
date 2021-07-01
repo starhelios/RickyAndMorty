@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, SafeAreaView, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 // Components.
 import LoadingIndicator from '../../components/common/LoadingIndicator';
@@ -7,8 +7,7 @@ import ScreenWithTitle from '../../components/common/ScreenWithTitle';
 import LocationPreviewTile from '../../components/home/LocationPreviewTile';
 // Store.
 import { LOCATIONS_DATA_SAGA } from '../../store/sagas/dataTransferSaga';
-// Styles.
-import { colors } from '../../styles/colors';
+
 
 const HomeScreen = ({ navigation }) => {
     const dispatch = useDispatch();

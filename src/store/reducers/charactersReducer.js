@@ -6,26 +6,7 @@ export const SET_ACTIVE_CHARACTER = BASE + '/active';
 
 const initialState = {
     characters: [],
-    activeResident: {
-        "created": "2017-11-04T18:50:21.651Z",
-        "episode": [
-            "Array"
-        ],
-        "gender": "Male",
-        "id": 2,
-        "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-        "location": [
-            "Object"
-        ],
-        "name": "Morty Smith",
-        "origin": [
-            "Object"
-        ],
-        "species": "Human",
-        "status": "Alive",
-        "type": "",
-        "url": "https://rickandmortyapi.com/api/character/2"
-    },
+    activeResident: {},
 }
 export default charactersReducer = (state = initialState, action) => {
     switch (action.type) {

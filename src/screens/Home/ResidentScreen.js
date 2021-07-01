@@ -7,11 +7,9 @@ import ResidentOverview from '../../components/home/ResidentOverview';
 import UserResidentImpression from '../../components/home/UserResidentImpression';
 import BackButton from '../../components/common/BackButton';
 import SubmitButton from '../../components/common/SubmitButton';
-
 // Store.
 import { SEND_IMPRESSION_SAGA } from '../../store/sagas/dataTransferSaga';
-// Styles.
-// Utils.
+
 
 const ResidentScreen = ({ navigation }) => {
     const resident = useSelector((state) => state.charactersReducer.activeResident);

@@ -1,6 +1,5 @@
 import { call, put, takeEvery } from "@redux-saga/core/effects";
-import { GET_Characters, GET_Locations, POST_Form } from "../../services/rickNmortyService";
-import { setCharactersArray } from "../reducers/charactersReducer";
+import { GET_Locations, POST_Form } from "../../services/rickNmortyService";
 import { setHomeLoader, setSubmitLoader } from "../reducers/loaderReducer";
 import { setLocationsArray } from "../reducers/locationsReducer";
 import * as NavigationService from '../../config/navigation/navigationService';

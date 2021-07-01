@@ -1,11 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { ResidentStatusColorMapper } from '../../models/ResidentStatusEnum';
-
-// Components.
-// Store.
-// Styles.
 // Utils.
+import { ResidentStatusColorMapper } from '../../models/ResidentStatusEnum';
 
 const StatusDot = ({ status = "Dead", marginHorizontal = 0 }) => {
     const color = ResidentStatusColorMapper[status];

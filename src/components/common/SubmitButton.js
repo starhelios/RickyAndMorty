@@ -1,11 +1,9 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 // Components.
-// Store.
+import LoadingIndicator from './LoadingIndicator';
 // Styles.
 import { colors } from '../../styles/colors';
-import LoadingIndicator from './LoadingIndicator';
-// Utils.
 
 const SubmitButton = ({ onSumbit, disabled, isLoading }) => {
 
