@@ -1,12 +1,13 @@
 import { call, put, takeEvery } from "@redux-saga/core/effects";
 import { GET_Characters, GET_Locations } from "../../services/rickNmortyService";
 import { setCharactersArray } from "../reducers/charactersReducer";
-import { setHomeLoader } from "../reducers/loaderReducer";
+import { setHomeLoader, setSubmitLoader } from "../reducers/loaderReducer";
 import { setLocationsArray } from "../reducers/locationsReducer";
 
 const BASE = 'ricknmorty/saga/dataTransferSaga'
 
 export const LOCATIONS_DATA_SAGA = BASE + '/locations';
+export const SEND_IMPRESSION_SAGA = BASE + '/impression';
 
 
 export function* locationsData() {
@@ -22,6 +23,23 @@ export function* locationsData() {
     }
 }
 
+export function* postImpression(data) {
+    try {
+        console.log(`dataTransferSaga.js : SAGA -> ${SEND_IMPRESSION_SAGA}`);
+        console.log(data);
+        yield put(setSubmitLoader(true));
+
+    } catch (err) {
+        console.log(`Error @ dataTransferSaga.js : SAGA -> ${SEND_IMPRESSION_SAGA}, err: `, err);
+    } finally {
+        yield put(setSubmitLoader(false));
+    }
+}
+
 export function* watchLocationsData() {
     yield takeEvery(LOCATIONS_DATA_SAGA, locationsData);
+}
+
+export function* watchImpressionData() {
+    yield takeEvery(SEND_IMPRESSION_SAGA, postImpression);
 }

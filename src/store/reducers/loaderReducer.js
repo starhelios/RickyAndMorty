@@ -1,11 +1,12 @@
 export const BASE = 'ricknmorty/reducer/loader';
 
 export const SET_HOME_LOADING = BASE + '/home';
-
+export const SET_SUBMIT_LOADING = BASE + '/sumbit';
 
 
 const initialState = {
-    home: false
+    home: false,
+    submit: false,
 }
 
 export default loaderReducer = (state = initialState, action) => {
@@ -15,6 +16,12 @@ export default loaderReducer = (state = initialState, action) => {
             return {
                 ...state,
                 home: action.payload,
+            }
+        case SET_SUBMIT_LOADING:
+            console.log(`loaderReducer.js: action: ${SET_SUBMIT_LOADING}`);
+            return {
+                ...state,
+                submit: action.payload,
             }
         default:
             return state;
@@ -27,4 +34,12 @@ export const setHomeLoader = (payload) => {
         payload
     }
 }
+
+export const setSubmitLoader = (payload) => {
+    return {
+        type: SET_SUBMIT_LOADING,
+        payload
+    }
+}
+
 
