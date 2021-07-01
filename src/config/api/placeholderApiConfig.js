@@ -12,14 +12,10 @@ const responseInterceptorID = API_PLACEHOLDER.interceptors.response.use(
 );
 
 const handleSuccessResponse = response => {
-    //console.log('apiConfig.js - Response succeded!\n');
     return response;
 };
 
 const handleErrorResponse = error => {
-    console.log('apiConfig.js - handleErrorResponse\n');
-    console.log(error);
-
     if (error.message === 'Network Error') {
         let customError = {
             title: 'Network Error',
@@ -29,11 +25,10 @@ const handleErrorResponse = error => {
         };
         Alert.alert(customError.title, customError.message);
         return Promise.reject(customError);
-    } else console.log('Not network error.');
+    } else
+        console.log('Not network error.');
 
     const { status, errors } = error.response.data;
-    console.log('Status code:', status);
-    console.log('Error:', errors);
 
     let customError = null;
 

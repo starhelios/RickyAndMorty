@@ -13,7 +13,6 @@ export const SEND_IMPRESSION_SAGA = BASE + '/impression';
 
 export function* locationsData() {
     try {
-        console.log(`dataTransferSaga.js : SAGA -> ${LOCATIONS_DATA_SAGA}`);
         yield put(setHomeLoader(true));
         let data = yield call(GET_Locations);
         yield put(setLocationsArray(data));
@@ -26,7 +25,6 @@ export function* locationsData() {
 
 export function* postImpression(data) {
     try {
-        console.log(`dataTransferSaga.js : SAGA -> ${SEND_IMPRESSION_SAGA}`, data);
         yield put(setSubmitLoader(true));
         let response = yield call(POST_Form, { data });
         NavigationService.navigate(HOME_SCREEN);

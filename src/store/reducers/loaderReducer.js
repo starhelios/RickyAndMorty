@@ -12,13 +12,11 @@ const initialState = {
 export default loaderReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_HOME_LOADING:
-            console.log(`loaderReducer.js: action: ${SET_HOME_LOADING}`);
             return {
                 ...state,
                 home: action.payload,
             }
         case SET_SUBMIT_LOADING:
-            console.log(`loaderReducer.js: action: ${SET_SUBMIT_LOADING}`);
             return {
                 ...state,
                 submit: action.payload,

@@ -11,13 +11,11 @@ const initialState = {
 export default charactersReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_CHARACTERS_ARRAY:
-            console.log(`loaderReducer.js: action: ${SET_CHARACTERS_ARRAY}`);
             return {
                 ...state,
                 characters: action.payload,
             }
         case SET_ACTIVE_CHARACTER:
-            console.log(`loaderReducer.js: action: ${SET_ACTIVE_CHARACTER}`);
             return {
                 ...state,
                 activeResident: action.payload,

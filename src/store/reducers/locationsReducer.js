@@ -12,7 +12,6 @@ const initialState = {
 export default locationsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_LOCATIONS_ARRAY:
-            console.log(`loaderReducer.js: action: ${SET_LOCATIONS_ARRAY}`);
             return {
                 ...state,
                 locations: action.payload,

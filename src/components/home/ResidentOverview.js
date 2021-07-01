@@ -19,7 +19,6 @@ const ResidentOverview = ({ resident }) => {
         try {
             let epData = await GET_Episode(resident.episode[0]);
             setEpisode(epData);
-            console.log('episode: ', epData.name)
             return;
         } catch (err) {
             console.log('Error @ ResidentOverivew.js: fetchCharacterDataFromApi -> ', err);
