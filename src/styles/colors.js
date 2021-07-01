@@ -6,6 +6,6 @@ export const colors = {
     deadColor: '#d63d2f',
     aliveColor: '#56cc44',
     unknownColor: '#9f9e9e',
-    bottomStatusBackground: '#f5f5f5'
+    bottomStatusBackground: 'rgba(245, 245, 245, 0.75)'
 
 }
