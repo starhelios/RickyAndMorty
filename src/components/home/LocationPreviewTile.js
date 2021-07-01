@@ -28,7 +28,7 @@ export default LocationPreviewTile;
 
 const styles = StyleSheet.create({
     container: {
-        height: 160,
+        height: 200,
         backgroundColor: colors.previewTileBackground,
         borderRadius: 10,
         overflow: 'hidden',

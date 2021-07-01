@@ -58,8 +58,10 @@ const ResidentInfoImage = ({ characterDataUrl, navigation }) => {
                 {!loading && character != null &&
                     <ImageBackground source={{ uri: character.image }} style={{ height: '100%', width: 100 }}>
                         <View style={{ flexGrow: 1, justifyContent: 'flex-end' }}>
-                            <View style={{ backgroundColor: colors.bottomStatusBackground, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 4, alignItems: 'center' }}>
-                                <Text style={styles.textStyle}>{character.name}</Text>
+                            <View style={{ backgroundColor: colors.bottomStatusBackground, flexDirection: 'row', justifyContent: 'space-between', padding: 4, alignItems: 'center', }}>
+                                <View style={{ flex: 1, margin: 4 }}>
+                                    <Text style={styles.textStyle}>{character.name}</Text>
+                                </View>
                                 <StatusDot status={character.status} />
                             </View>
                         </View>
@@ -74,7 +76,7 @@ export default ResidentInfoImage;
 const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
-        height: 100,
+        height: 140,
         borderRadius: 10,
         overflow: 'hidden',
         marginRight: 4

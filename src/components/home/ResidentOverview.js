@@ -35,7 +35,7 @@ const ResidentOverview = ({ resident }) => {
                     <Text style={styles.nameTextStyle}>{resident.name}</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <StatusDot status={resident.status} marginHorizontal={4} />
-                        <Text style={styles.infoTextStyle}>{resident.status}</Text>
+                        <Text style={styles.infoTextStyle}>{resident.status[0].toUpperCase() + resident.status.slice(1)}</Text>
                         <Text style={[styles.infoTextStyle, { marginHorizontal: 8 }]}>-</Text>
                         <Text style={styles.infoTextStyle}>{resident.species}</Text>
                     </View>
