@@ -35,7 +35,7 @@ const ResidentScreen = ({ navigation }) => {
                         state={impressionInput}
                         setState={setImpressionInput}
                     />
-                    <SubmitButton onSumbit={onSumbit} disabled={impressionInput == ""} isLoading={loading} />
+                    <SubmitButton onSumbit={onSumbit} disabled={impressionInput == "" || loading} isLoading={loading} />
                 </View>
             }
         />

@@ -1,5 +1,5 @@
 import { call, put, takeEvery } from "@redux-saga/core/effects";
-import { GET_Characters, GET_Locations } from "../../services/rickNmortyService";
+import { GET_Characters, GET_Locations, POST_Form } from "../../services/rickNmortyService";
 import { setCharactersArray } from "../reducers/charactersReducer";
 import { setHomeLoader, setSubmitLoader } from "../reducers/loaderReducer";
 import { setLocationsArray } from "../reducers/locationsReducer";
@@ -25,9 +25,9 @@ export function* locationsData() {
 
 export function* postImpression(data) {
     try {
-        console.log(`dataTransferSaga.js : SAGA -> ${SEND_IMPRESSION_SAGA}`);
-        console.log(data);
+        console.log(`dataTransferSaga.js : SAGA -> ${SEND_IMPRESSION_SAGA}`, data);
         yield put(setSubmitLoader(true));
+        let response = yield call(POST_Form, { data });
 
     } catch (err) {
         console.log(`Error @ dataTransferSaga.js : SAGA -> ${SEND_IMPRESSION_SAGA}, err: `, err);

@@ -50,8 +50,11 @@ export const GET_Episode = async (url) => {
 
 export const POST_Form = async (data) => {
     try {
-
-        // let response = await API_PLACEHOLDER.post(ENDPOINTS.FORM,{})
+        let text = data.data.text;
+        let body = {
+            text: text
+        }
+        let response = await API_PLACEHOLDER.post(ENDPOINTS.FORM, body);
         return;
     } catch (err) {
         console.log('Error @ rickNmortyService.js: POST_Form -> ', err);
