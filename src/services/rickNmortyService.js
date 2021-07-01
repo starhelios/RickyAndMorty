@@ -35,3 +35,13 @@ export const GET_CharacterData = async (url) => {
         console.log('Error @ rickNmortyService.js: GET_CHARACTERS -> ', err);
     }
 }
+
+export const GET_Episode = async (url) => {
+    try {
+        let response = await API.get(url);
+        let data = response.data;
+        return data;
+    } catch (err) {
+        console.log('Error @ rickNmortyService.js: GET_CHARACTERS -> ', err);
+    }
+}

@@ -7,11 +7,11 @@ import { ResidentStatusColorMapper } from '../../models/ResidentStatusEnum';
 // Styles.
 // Utils.
 
-const StatusDot = ({ status = "Dead" }) => {
+const StatusDot = ({ status = "Dead", marginHorizontal = 0 }) => {
     const color = ResidentStatusColorMapper[status];
 
     return (
-        <View style={[styles.dotContainer, { backgroundColor: color }]} />
+        <View style={[styles.dotContainer, { backgroundColor: color, marginHorizontal: marginHorizontal }]} />
     )
 }
 

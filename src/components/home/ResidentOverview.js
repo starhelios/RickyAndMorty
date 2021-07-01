@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import { GET_Episode } from '../../services/rickNmortyService';
 
 
 // Components.
@@ -10,16 +11,44 @@ import StatusDot from './StatusDot';
 // Utils.
 
 const ResidentOverview = ({ resident }) => {
+    const [episode, setEpisode] = useState(null);
+
+    useEffect(() => {
+        fetchResidentEpisodeFromAPI()
+    }, [])
+
+    const fetchResidentEpisodeFromAPI = async () => {
+        try {
+            let epData = await GET_Episode(resident.episode[0]);
+            setEpisode(epData);
+            console.log('episode: ', epData.name)
+            return;
+        } catch (err) {
+            console.log('Error @ CharacterInfoImage.js: fetchCharacterDataFromApi -> ', err);
+        }
+    }
     return (
         <View style={styles.container}>
-            <View style={{ flex: 1, flexDirection: 'row' }}>
-                <View style={{ flex: 1 }}>
+            <View style={{ flexDirection: 'row' }}>
+                <View style={{ width: 120 }}>
                     <Image source={{ uri: resident.image }} style={{ height: "100%", resizeMode: 'cover' }} />
                 </View>
-                <View style={{ flexGrow: 1, padding: 8 }}>
+                <View style={{ padding: 8 }}>
                     <Text style={styles.nameTextStyle}>{resident.name}</Text>
-                    <Text style={styles.statusTextStyle}>{resident.species}</Text>
-                    <StatusDot status={resident.status} />
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <StatusDot status={resident.status} marginHorizontal={4} />
+                        <Text style={styles.infoTextStyle}>{resident.status}</Text>
+                        <Text style={[styles.infoTextStyle, { marginHorizontal: 8 }]}>-</Text>
+                        <Text style={styles.infoTextStyle}>{resident.species}</Text>
+                    </View>
+                    <View style={{ marginTop: 16 }}>
+                        <Text style={styles.infoQuestionText}>Last know location:</Text>
+                        <Text style={styles.infoTextStyle}>{resident.location.name}</Text>
+                    </View>
+                    <View style={{ marginTop: 16, flexGrow: 1, padding: 4, }}>
+                        <Text style={styles.infoQuestionText}>First seen in:</Text>
+                        {episode && <Text style={styles.infoTextStyle}>{episode.name}</Text>}
+                    </View>
                 </View>
             </View>
         </View>
@@ -36,13 +65,17 @@ const styles = StyleSheet.create({
         overflow: 'hidden'
     },
     nameTextStyle: {
-        fontSize: 22,
+        fontSize: 26,
         color: colors.white,
         fontWeight: 'bold'
     },
-    statusTextStyle: {
-        fontSize: 14,
+    infoTextStyle: {
+        fontSize: 16,
         color: colors.white
+    },
+    infoQuestionText: {
+        fontSize: 12,
+        color: colors.dataInfoTextGray
     }
 
 })
